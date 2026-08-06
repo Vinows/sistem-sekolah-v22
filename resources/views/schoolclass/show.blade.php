@@ -14,7 +14,7 @@
             <div class="flex items-start justify-between border-b border-[#E5E3DB] bg-[#FCFBF8] px-8 py-6">
                 <div>
                     <p class="mb-1 text-[11px] uppercase widest[0.2em] text-[#A16207]">
-                        Lembar Siswa
+                        Lembar Kelas
                     </p>
 
                     <h1 class="font-display text-3xl font-semibold text-[#16213A]">
@@ -37,31 +37,21 @@
 
                 <div class="flex justify-between px-8 py-4">
                     <dt class="text-xs uppercase widest[0.1em] text-slate-400">
-                        NIS
+                        Nama Kelas
                     </dt>
 
                     <dd class="font-medium text-[#16213A]">
-                        2024001
+                        XII AKL 1
                     </dd>
                 </div>
 
                 <div class="flex justify-between px-8 py-4">
                     <dt class="text-xs uppercase widest[0.1em] text-slate-400">
-                        Nama Lengkap
+                        Tingkat
                     </dt>
 
                     <dd class="font-medium text-[#16213A]">
-                        Budi Ariyanto
-                    </dd>
-                </div>
-
-                <div class="flex justify-between px-8 py-4">
-                    <dt class="text-xs uppercase widest[0.1em] text-slate-400">
-                        Jenis Kelamin
-                    </dt>
-
-                    <dd class="font-medium text-[#16213A]">
-                        Laki-laki
+                        XII
                     </dd>
                 </div>
 
@@ -71,17 +61,17 @@
                     </dt>
 
                     <dd class="font-medium text-[#16213A]">
-                        RPL
+                        AKL
                     </dd>
                 </div>
 
                 <div class="flex justify-between px-8 py-4">
                     <dt class="text-xs uppercase widest[0.1em] text-slate-400">
-                        Kelas
+                        Wali Kelas
                     </dt>
 
                     <dd class="font-medium text-[#16213A]">
-                        XII AKL 1
+                        RPL
                     </dd>
                 </div>
 
@@ -90,7 +80,7 @@
             <div class="flex justify-end gap-4 border-t border-[#E5E3DB] px-8 py-5">
 
                 <a
-                    href=""
+                    href="{{ route('classes.index') }}"
                     class="px-4 py-2.5 text-sm font-medium text-slate-500 hover:text-[#16213A]">
                     Kembali
                 </a>
@@ -98,7 +88,7 @@
                 <form
                     action=""
                     method="POST"
-                    onsubmit="return confirm('Hapus data siswa ini dari buku induk?')">
+                    onsubmit="return confirm('Hapus data Kelas ini dari buku induk?')">
 
                     @csrf
                     @method('DELETE')

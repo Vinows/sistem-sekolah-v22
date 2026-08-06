@@ -31,7 +31,8 @@
                     <th class="px-5 py-3.5 font-semibold">Jenis Kelamin</th>
                     <th class="px-5 py-3.5 font-semibold">Mata Pelajaran</th>
                     <th class="px-5 py-3.5 font-semibold">No. Telepon</th>
-                    <th class="px-5 py-3.5 text-right font-semibold">Status</th>
+                    <th class="px-5 py-3.5 font-semibold">Status</th>
+                    <th class="px-5 py-3.5 text-right font-semibold">Tindakan</th>
                 </tr>
             </thead>
 

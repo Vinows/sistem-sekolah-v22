@@ -10,8 +10,11 @@ class ShowController extends Controller
     /**
      * Handle the incoming request.
      */
-    public function __invoke(Request $request, $id)
-    {
-        return "Displaying school class with ID: {$id}";
+    public function __invoke(Request $request, $id){
+        $title = "Sistem Sekolah - Detail Siswa";
+
+        return view('students.show', [
+            'title' => $title
+        ]);
     }
 }
