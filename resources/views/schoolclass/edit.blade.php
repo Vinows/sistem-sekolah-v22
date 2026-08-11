@@ -58,7 +58,7 @@
                 <label
                     for="major"
                     class="mb-1.5 block text-xs font-semibold uppercase widest[0.1em] text-[#16213A]">
-                    Jenis Kelamin
+                    Jurusan
                 </label>
 
                 <select
@@ -69,48 +69,40 @@
                     <option value="" selected>Pilih Jurusan</option>
 
                     @foreach ($majors as $major)
-                        <option value="{{ $major->id }}">
-                            {{ $major->name }}
+                        <option value="{{ $major ['id'] }}">
+                            {{ $major ['name'] }}
                         </option>
                     @endforeach
                 </select>
             </div>
 
+
             <div>
                 <label
-                    for="major"
+                    for="homeroom_teacher"
                     class="mb-1.5 block text-xs font-semibold uppercase widest[0.1em] text-[#16213A]">
-                    Jurusan
+                    Wali Kelas
                 </label>
 
                 <select
-                    id="major"
-                    name="major"
-                    class="w-full border border-[#D9D6CD] bg-[#FCFBF8] px-3.5 py-2.5 text-sm focus:border-[#A16207] focus:bg-white focus:outline-none">
-                    <option value="" selected>AKL</option>
-                    <option value="">TKJ</option>
-                    <option value="">BiD</option>
+                    id="homeroom_teacher"
+                    name="major_id"
+                    class="w-full border border-[#D9D6CD] bg-[#FCFBF8] px-3.5 py-2.5 text-sm focus:border-[#A16207] focus:bg-white">
+
+                    <option value="" selected>Pilih Jurusan</option>
+
+                    @foreach ($teachers as $teacher)
+                        <option value="{{ $teacher ['id'] }}">
+                            {{ $teacher ['name'] }}
+                        </option>
+                    @endforeach
                 </select>
             </div>
-
-            <div>
-                <label
-                    for="class"
-                    class="mb-1.5 block text-xs font-semibold uppercase widest[0.1em] text-[#16213A]">
-                    Kelas
-                </label>
-
-                <input
-                    type="text"
-                    id="class"
-                    name="class"
-                    value="XII AKL 1"
-                    class="w-full border border-[#D9D6CD] bg-[#FCFBF8] px-3.5 py-2.5 text-sm focus:border-[#A16207] focus:bg-white focus:outline-none">
             </div>
 
             <div class="flex justify-end gap-4 border-t border-[#EFEDE6] pt-6">
                 <a
-                    href=""
+                    href="{{ route('classes.index') }}"
                     class="px-4 py-2.5 text-sm font-medium text-slate-500 hover:text-[#16213A]">
                     Batal
                 </a>

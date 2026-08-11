@@ -13,11 +13,11 @@
             </a>
 
             <h1 class="font-display mt-2 text-3xl font-semibold text-[#16213A]">
-                Catat Siswa Baru
+                Catat Kelas Baru
             </h1>
 
             <p class="mt-1 text-sm text-slate-500">
-                Isi data untuk mendaftarkan siswa ke buku induk.
+                Isi data untuk mendaftarkan Kelas ke buku induk.
             </p>
         </div>
 
@@ -28,47 +28,34 @@
 
             <div>
                 <label
-                    for="nis"
-                    class="mb-1.5 block text-xs font-semibold uppercase widest[0.1em] text-[#16213A]">
-                    NIS
-                </label>
-
-                <input
-                    type="text"
-                    id="nis"
-                    name="nis"
-                    placeholder="Contoh: 2024010"
-                    class="w-full border border-[#D9D6CD] bg-[#FCFBF8] px-3.5 py-2.5 text-sm placeholder:text-slate-400 focus:border-[#A16207] focus:bg-white focus:outline-none">
-            </div>
-
-            <div>
-                <label
                     for="name"
                     class="mb-1.5 block text-xs font-semibold uppercase widest[0.1em] text-[#16213A]">
-                    Nama Lengkap
+                    Nama Kelas
                 </label>
 
                 <input
                     type="text"
                     id="name"
                     name="name"
-                    placeholder="Nama lengkap siswa"
+                    placeholder="Contoh: XII AKL 1"
                     class="w-full border border-[#D9D6CD] bg-[#FCFBF8] px-3.5 py-2.5 text-sm placeholder:text-slate-400 focus:border-[#A16207] focus:bg-white focus:outline-none">
             </div>
 
             <div>
                 <label
-                    for="gender"
+                    for="grade"
                     class="mb-1.5 block text-xs font-semibold uppercase widest[0.1em] text-[#16213A]">
-                    Jenis Kelamin
+                    Tingkat
                 </label>
 
                 <select
-                    id="gender"
-                    name="gender"
+                    id="grade"
+                    name="grade"
                     class="w-full border border-[#D9D6CD] bg-[#FCFBF8] px-3.5 py-2.5 text-sm focus:border-[#A16207] focus:bg-white focus:outline-none">
-                    <option value="L">Laki-laki</option>
-                    <option value="P">Perempuan</option>
+                    <option value="Pilih Tingkatan" selected>Pilih Tingkatan</option>
+                    <option value="X">X</option>
+                    <option value="XI">XI</option>
+                    <option value="XII">XII</option>
                 </select>
             </div>
 
@@ -81,33 +68,44 @@
 
                 <select
                     id="major"
-                    name="major"
-                    class="w-full border border-[#D9D6CD] bg-[#FCFBF8] px-3.5 py-2.5 text-sm focus:border-[#A16207] focus:bg-white focus:outline-none">
-                    <option value="">Pilih jurusan</option>
-                    <option value="">AKL</option>
-                    <option value="">TKJ</option>
-                    <option value="">BiD</option>
+                    name="major_id"
+                    class="w-full border border-[#D9D6CD] bg-[#FCFBF8] px-3.5 py-2.5 text-sm focus:border-[#A16207] focus:bg-white">
+
+                    <option value="" selected>Pilih Jurusan</option>
+
+                    @foreach ($majors as $major)
+                        <option value="{{ $major ['id'] }}">
+                            {{ $major ['name'] }}
+                        </option>
+                    @endforeach
                 </select>
             </div>
 
             <div>
                 <label
-                    for="class"
+                    for="homeroom_teacher"
                     class="mb-1.5 block text-xs font-semibold uppercase widest[0.1em] text-[#16213A]">
-                    Kelas
+                    Wali Kelas
                 </label>
 
-                <input
-                    type="text"
-                    id="class"
-                    name="class"
-                    placeholder="Contoh: X AKL 1"
-                    class="w-full border border-[#D9D6CD] bg-[#FCFBF8] px-3.5 py-2.5 text-sm placeholder:text-slate-400 focus:border-[#A16207] focus:bg-white focus:outline-none">
+                <select
+                    id="homeroom_teacher"
+                    name="major_id"
+                    class="w-full border border-[#D9D6CD] bg-[#FCFBF8] px-3.5 py-2.5 text-sm focus:border-[#A16207] focus:bg-white">
+
+                    <option value="" selected>Pilih WaliKelas</option>
+
+                    @foreach ($teachers as $teacher)
+                        <option value="{{ $teacher ['id'] }}">
+                            {{ $teacher ['name'] }}
+                        </option>
+                    @endforeach
+                </select>
             </div>
 
             <div class="flex justify-end gap-4 border-t border-[#EFEDE6] pt-6">
                 <a
-                    href="#"
+                    href="{{ route('classes.index') }}"
                     class="px-4 py-2.5 text-sm font-medium text-slate-500 hover:text-[#16213A]">
                     Batal
                 </a>

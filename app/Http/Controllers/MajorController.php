@@ -11,15 +11,43 @@ class MajorController extends Controller
      */
     public function index()
     {
-        return "Displaying major list";
+        $title = 'Sistem Sekolah - Daftar Major';
+        $majors = [
+            [
+                'id' => 1,
+                'code' => 'AKL',
+                'name' => 'Akuntansi dan Keuangan Lembaga',
+                'description' => 'Program keahlian yang membekali murid dengan kompetensi pencatatan dan pelaporan keuangan.',
+            ],
+            [
+                'id' => 2,
+                'code' => 'TKJ',
+                'name' => 'Teknik Komputer dan Jaringan',
+                'description' => 'Program keahlian yang membekali murid dengan kompetensi instalasi, konfigurasi, dan pemeliharaan jaringan komputer.',
+            ],
+            [
+                'id' => 3,
+                'code' => 'BD',
+                'name' => 'Bisnis Digital',
+                'description' => 'Program keahlian yang membekali murid dengan kompetensi pemasaran dan pengelolaan bisnis berbasis digital.',
+            ],
+        ];
+        return view('majors.index', [
+            'title' => $title,
+            'majors' => $majors
+        ]);
+
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Request $request)
     {
-        return "Displaying major create form";
+        $title = "Sistem Sekolah - Tambah Major";
+        return view('majors.create', [
+            'title' => $title
+        ]);
     }
 
     /**
@@ -35,7 +63,35 @@ class MajorController extends Controller
      */
     public function show(string $id)
     {
-        return "Displaying major with ID: {$id}";
+        $title = 'Sistem Sekolah - Detail Major';
+
+        $majors = [
+            [
+                'id' => 1,
+                'code' => 'AKL',
+                'name' => 'Akuntansi dan Keuangan Lembaga',
+                'description' => 'Program keahlian yang membekali murid dengan kompetensi pencatatan dan pelaporan keuangan.',
+            ],
+            [
+                'id' => 2,
+                'code' => 'TKJ',
+                'name' => 'Teknik Komputer dan Jaringan',
+                'description' => 'Program keahlian yang membekali murid dengan kompetensi instalasi, konfigurasi, dan pemeliharaan jaringan komputer.',
+            ],
+            [
+                'id' => 3,
+                'code' => 'BD',
+                'name' => 'Bisnis Digital',
+                'description' => 'Program keahlian yang membekali murid dengan kompetensi pemasaran dan pengelolaan bisnis berbasis digital.',
+            ],
+        ];
+
+        $major = collect($majors)->firstWhere('id', (int) $id);
+
+        return view('majors.show', [
+            'title' => $title,
+            'major' => $major,
+        ]);
     }
 
     /**
@@ -43,7 +99,35 @@ class MajorController extends Controller
      */
     public function edit(string $id)
     {
-        return "Displaying major edit form with ID: {$id}";
+        $title = 'Sistem Sekolah - Edit Major';
+
+        $majors = [
+            [
+                'id' => 1,
+                'code' => 'AKL',
+                'name' => 'Akuntansi dan Keuangan Lembaga',
+                'description' => 'Program keahlian yang membekali murid dengan kompetensi pencatatan dan pelaporan keuangan.',
+            ],
+            [
+                'id' => 2,
+                'code' => 'TKJ',
+                'name' => 'Teknik Komputer dan Jaringan',
+                'description' => 'Program keahlian yang membekali murid dengan kompetensi instalasi, konfigurasi, dan pemeliharaan jaringan komputer.',
+            ],
+            [
+                'id' => 3,
+                'code' => 'BD',
+                'name' => 'Bisnis Digital',
+                'description' => 'Program keahlian yang membekali murid dengan kompetensi pemasaran dan pengelolaan bisnis berbasis digital.',
+            ],
+        ];
+
+        $major = collect($majors)->firstWhere('id', (int) $id);
+
+        return view('majors.edit', [
+            'title' => $title,
+            'major' => $major,
+        ]);
     }
 
     /**

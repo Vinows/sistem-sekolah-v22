@@ -9,7 +9,7 @@ class TeacherController extends Controller
     // Menampilkan daftar teacher
     public function index()
     {
-        $title = "Sistem Sekolah - Edit Guru";
+        $title = "Sistem Sekolah - Daftar Guru";
         $teachers = [
             [
                 'id' => 1,
@@ -40,7 +40,7 @@ class TeacherController extends Controller
     // Menampilkan form tambah teacher
     public function create()
     {
-        $title = "Sistem Sekolah - Edit Guru";
+        $title = "Sistem Sekolah - Tambah Guru";
         return view('teachers.create', [
             'title' => $title
         ]);
