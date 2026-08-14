@@ -12,7 +12,28 @@ class CreateController extends Controller
      */
     public function __invoke(Request $request)
     {
-        $title = "Sistem Sekolah - Daftar Kelas";
+        $title = "Sistem Sekolah - Tambah Kelas";
+        $majors = [
+            [
+                'id' => 1,
+                'code' => 'AKL',
+                'name' => 'Akuntansi dan Keuangan Lembaga',
+                'description' => 'Program keahlian yang membekali murid dengan kompetensi pencatatan dan pelaporan keuangan.',
+            ],
+            [
+                'id' => 2,
+                'code' => 'TKJ',
+                'name' => 'Teknik Komputer dan Jaringan',
+                'description' => 'Program keahlian yang membekali murid dengan kompetensi instalasi, konfigurasi, dan pemeliharaan jaringan komputer.',
+            ],
+            [
+                'id' => 3,
+                'code' => 'BD',
+                'name' => 'Bisnis Digital',
+                'description' => 'Program keahlian yang membekali murid dengan kompetensi pemasaran dan pengelolaan bisnis berbasis digital.',
+            ],
+        ];
+
         $teachers = [
             [
                 'id' => 1,
@@ -34,32 +55,10 @@ class CreateController extends Controller
             ]
         ];
 
-        $majors = [
-        [
-            'id' => 1,
-            'code' => 'AKL',
-            'name' => 'Akuntansi dan Keuangan Lembaga',
-            'description' => 'Program keahlian yang membekali murid dengan kompetensi pencatatan dan pelaporan keuangan.',
-        ],
-        [
-            'id' => 2,
-            'code' => 'TKJ',
-            'name' => 'Teknik Komputer dan Jaringan',
-            'description' => 'Program keahlian yang membekali murid dengan kompetensi instalasi, konfigurasi, dan pemeliharaan jaringan komputer.',
-        ],
-        [
-            'id' => 3,
-            'code' => 'BD',
-            'name' => 'Bisnis Digital',
-            'description' => 'Program keahlian yang membekali murid dengan kompetensi pemasaran dan pengelolaan bisnis berbasis digital.',
-        ],
-];
-
-
         return view('schoolclass.create', [
             'title' => $title,
-            'teachers' => $teachers,
-            'majors' => $majors
+            'majors' => $majors,
+            'teachers' => $teachers
         ]);
     }
 }

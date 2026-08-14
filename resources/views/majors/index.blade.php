@@ -3,9 +3,6 @@
 @section('title', $title)
 
 @section('content')
-    <x-alert type="ERROR">
-        Terdapat kesalahan ketika menambahkan data Major baru ke dalam sistem sekolah
-    </x-alert>
     <div class="mb-8 flex items-end justify-between border-b border-[#E5E3DB] pb-5">
         <div>
             <p class="mb-1 text-[11px] uppercase tracking-[0.2em] text-[#A16207]">
@@ -13,12 +10,12 @@
             </p>
 
             <h1 class="font-display text-3xl font-semibold text-[#16213A]">
-                Daftar Major
+                Daftar Jurusan
             </h1>
         </div>
 
         <a href="{{ route('majors.create') }}" class="bg-[#16213A] px-5 py-2.5 text-sm font-medium text-white transition hover:bg-[#26324f]">
-            Catat Major Baru
+            Catat Jurusan Baru
         </a>
     </div>
 
@@ -64,11 +61,11 @@
                                 </a>
 
                                 <form action="" method="POST"
-                                    onsubmit="return confirm('Hapus data Major ini dari buku induk?')">
+                                    onsubmit="return confirm('Hapus data siswa ini dari buku induk?')">
 
-                                    <button type="submit" class="text-red-700 hover:text-red-900">
-                                        Hapus
-                                    </button>
+                                    <a href="{{ route('majors.destroy', ['major' => $major['id']]) }}" class="text-red-700 hover:text-red-900">
+                                    Hapus
+                                    <a>
                                 </form>
                             </div>
                         </td>

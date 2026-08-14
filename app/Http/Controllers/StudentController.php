@@ -49,20 +49,57 @@ class StudentController extends Controller
     public function show($id)
     {
         $title = "Sistem Sekolah - Detail Siswa";
+        $students = [
+            [
+                'id' => 1,
+                'nis' => '1001',
+                'name' => 'Andi',
+                'class' => 'XII TKJ 1',
+                'major' => 'TKJ'
+            ],
+            [
+                'id' => 2,
+                'nis' => '1002',
+                'name' => 'Budi',
+                'class' => 'XII AKL 1',
+                'major' => 'AKL'
+            ]
+        ];
 
-        return view('students.show', [
-            'title' => $title
+        $students = collect($students)->firstWhere('id', $id);
+
+        return view('students.show',[
+            'title' => $title,
+            'student' => $students
         ]);
     }
 
     public function edit($id)
     {
         $title = "Sistem Sekolah - Edit Siswa";
+        $students = [
+            [
+                'id' => 1,
+                'nis' => '1001',
+                'name' => 'Andi',
+                'class' => 'XII TKJ 1',
+                'major' => 'TKJ'
+            ],
+            [
+                'id' => 2,
+                'nis' => '1002',
+                'name' => 'Budi',
+                'class' => 'XII AKL 1',
+                'major' => 'AKL'
+            ]
+        ];
 
+        $students = collect($students)->firstWhere('id', $id);
+        
         return view('students.edit', [
-            'title' => $title
+            'title' => $title,
+            'student'=> $students
         ]);
-
     }
 
     public function update($id)

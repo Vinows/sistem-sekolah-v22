@@ -4,7 +4,7 @@
 
 @section('content')
     <a
-            href="#"
+            href="{{ route('majors.index') }}"
             class="text-xs uppercase widest[0.15em] text-slate-400 hover:text-[#A16207]">
             &larr; Buku Induk
         </a>
@@ -14,20 +14,20 @@
             <div class="flex items-start justify-between border-b border-[#E5E3DB] bg-[#FCFBF8] px-8 py-6">
                 <div>
                     <p class="mb-1 text-[11px] uppercase widest[0.2em] text-[#A16207]">
-                        Lembar Major
+                        Lembar Jurusan
                     </p>
 
                     <h1 class="font-display text-3xl font-semibold text-[#16213A]">
-                        Budi Ariyanto
+                        {{$major['code']}}
                     </h1>
 
                     <p class="mt-1 font-mono text-xs text-slate-500">
-                        NIS 2024001
+                        {{$major['name']}}
                     </p>
                 </div>
 
                 <a
-                    href="{{ route('majors.edit', $major ['id']) }}"
+                    href="{{ route('majors.edit', ['major' => $major['id']]) }}"
                     class="bg-[#16213A] px-5 py-2.5 text-sm font-medium text-white transition hover:bg-[#26324f]">
                     Ubah
                 </a>
@@ -51,7 +51,7 @@
                     </dt>
 
                     <dd class="font-medium text-[#16213A]">
-                        {{ $major['name'] }}
+                        {{$major['name']}}
                     </dd>
                 </div>
 
@@ -61,10 +61,9 @@
                     </dt>
 
                     <dd class="font-medium text-[#16213A]">
-                        {{ $major ['description'] }}
+                        {{ $major['description'] }}
                     </dd>
                 </div>
-
             </dl>
 
             <div class="flex justify-end gap-4 border-t border-[#E5E3DB] px-8 py-5">
@@ -78,7 +77,7 @@
                 <form
                     action=""
                     method="POST"
-                    onsubmit="return confirm('Hapus data Major ini dari buku induk?')">
+                    onsubmit="return confirm('Hapus data siswa ini dari buku induk?')">
 
                     @csrf
                     @method('DELETE')

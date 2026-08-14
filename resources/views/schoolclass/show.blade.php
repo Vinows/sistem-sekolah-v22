@@ -4,7 +4,7 @@
 
 @section('content')
     <a
-            href="#"
+            href="{{ route('classes.index') }}"
             class="text-xs uppercase widest[0.15em] text-slate-400 hover:text-[#A16207]">
             &larr; Buku Induk
         </a>
@@ -18,16 +18,16 @@
                     </p>
 
                     <h1 class="font-display text-3xl font-semibold text-[#16213A]">
-                        Budi Ariyanto
+                        {{$class['name']}}
                     </h1>
 
                     <p class="mt-1 font-mono text-xs text-slate-500">
-                        NIS 2024001
+                        {{ $major['description'] }}
                     </p>
                 </div>
 
                 <a
-                    href="#"
+                    href="{{ route('classes.edit', ['id' => $class['id']]) }}"
                     class="bg-[#16213A] px-5 py-2.5 text-sm font-medium text-white transition hover:bg-[#26324f]">
                     Ubah
                 </a>
@@ -41,7 +41,7 @@
                     </dt>
 
                     <dd class="font-medium text-[#16213A]">
-                        XII AKL 1
+                        {{ $class['name'] }}
                     </dd>
                 </div>
 
@@ -51,7 +51,7 @@
                     </dt>
 
                     <dd class="font-medium text-[#16213A]">
-                        XII
+                        {{ $class['grade'] }}
                     </dd>
                 </div>
 
@@ -61,7 +61,7 @@
                     </dt>
 
                     <dd class="font-medium text-[#16213A]">
-                        AKL
+                        {{ $major['name'] }}
                     </dd>
                 </div>
 
@@ -71,10 +71,9 @@
                     </dt>
 
                     <dd class="font-medium text-[#16213A]">
-                        RPL
+                        {{ $teacher['name'] }}
                     </dd>
                 </div>
-
             </dl>
 
             <div class="flex justify-end gap-4 border-t border-[#E5E3DB] px-8 py-5">
@@ -88,7 +87,7 @@
                 <form
                     action=""
                     method="POST"
-                    onsubmit="return confirm('Hapus data Kelas ini dari buku induk?')">
+                    onsubmit="return confirm('Hapus data siswa ini dari buku induk?')">
 
                     @csrf
                     @method('DELETE')

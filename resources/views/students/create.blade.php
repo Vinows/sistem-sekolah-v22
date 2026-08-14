@@ -7,7 +7,7 @@
 
         <div class="mb-8 border-b border-[#E5E3DB] pb-5">
             <a
-                href=""
+                href="{{ route('students.index') }}"
                 class="text-xs uppercase widest[0.15em] text-slate-400 hover:text-[#A16207]">
                 &larr; Buku Induk
             </a>
@@ -28,16 +28,16 @@
 
             <div>
                 <label
-                    for="nip"
+                    for="nis"
                     class="mb-1.5 block text-xs font-semibold uppercase widest[0.1em] text-[#16213A]">
-                    NIP
+                    NIS
                 </label>
 
                 <input
                     type="text"
-                    id="nip"
-                    name="nip"
-                    placeholder="Contoh: 198501012024"
+                    id="nis"
+                    name="nis"
+                    placeholder="Contoh: 2024010"
                     class="w-full border border-[#D9D6CD] bg-[#FCFBF8] px-3.5 py-2.5 text-sm placeholder:text-slate-400 focus:border-[#A16207] focus:bg-white focus:outline-none">
             </div>
 
@@ -52,7 +52,7 @@
                     type="text"
                     id="name"
                     name="name"
-                    placeholder="Nama lengkap Guru"
+                    placeholder="Nama lengkap siswa"
                     class="w-full border border-[#D9D6CD] bg-[#FCFBF8] px-3.5 py-2.5 text-sm placeholder:text-slate-400 focus:border-[#A16207] focus:bg-white focus:outline-none">
             </div>
 
@@ -67,7 +67,7 @@
                     id="gender"
                     name="gender"
                     class="w-full border border-[#D9D6CD] bg-[#FCFBF8] px-3.5 py-2.5 text-sm focus:border-[#A16207] focus:bg-white focus:outline-none">
-                    <option value="L" selected>Laki-laki</option>
+                    <option value="L">Laki-laki</option>
                     <option value="P">Perempuan</option>
                 </select>
             </div>

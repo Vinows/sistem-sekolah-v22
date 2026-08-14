@@ -11,7 +11,7 @@ class MajorController extends Controller
      */
     public function index()
     {
-        $title = 'Sistem Sekolah - Daftar Major';
+        $title = "Sistem Sekolah - Daftar Jurusan";
         $majors = [
             [
                 'id' => 1,
@@ -36,15 +36,15 @@ class MajorController extends Controller
             'title' => $title,
             'majors' => $majors
         ]);
-
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create(Request $request)
+    public function create()
     {
-        $title = "Sistem Sekolah - Tambah Major";
+        $title = "Sistem Sekolah - Tambah Jurusan";
+
         return view('majors.create', [
             'title' => $title
         ]);
@@ -63,8 +63,7 @@ class MajorController extends Controller
      */
     public function show(string $id)
     {
-        $title = 'Sistem Sekolah - Detail Major';
-
+        $title = "Sistem Sekolah - Detail Jurusan";
         $majors = [
             [
                 'id' => 1,
@@ -86,11 +85,11 @@ class MajorController extends Controller
             ],
         ];
 
-        $major = collect($majors)->firstWhere('id', (int) $id);
+        $majors = collect($majors)->firstWhere('id', $id);
 
         return view('majors.show', [
             'title' => $title,
-            'major' => $major,
+            'major' => $majors
         ]);
     }
 
@@ -99,8 +98,7 @@ class MajorController extends Controller
      */
     public function edit(string $id)
     {
-        $title = 'Sistem Sekolah - Edit Major';
-
+        $title = "Sistem Sekolah - Edit Jurusan";
         $majors = [
             [
                 'id' => 1,
@@ -121,12 +119,12 @@ class MajorController extends Controller
                 'description' => 'Program keahlian yang membekali murid dengan kompetensi pemasaran dan pengelolaan bisnis berbasis digital.',
             ],
         ];
-
-        $major = collect($majors)->firstWhere('id', (int) $id);
+        
+        $majors = collect($majors)->firstWhere('id', $id);
 
         return view('majors.edit', [
             'title' => $title,
-            'major' => $major,
+            'major' => $majors
         ]);
     }
 

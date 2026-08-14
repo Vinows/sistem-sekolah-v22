@@ -14,24 +14,24 @@ class IndexController extends Controller
     {
         $title = "Sistem Sekolah - Daftar Kelas";
         $schoolclass = [
-        [
-            'id' => 1,
-            'name' => 'XII AKL 1',
-            'grade' => 'XII',
-            'major' => 'AKL',
-            'homeroom_teacher' => 'Budi Santoso'
-        ],
-        [
-            'id' => 2,
-            'name' => 'XII TKJ 1',
-            'grade' => 'XII',
-            'major' => 'TKJ',
-            'homeroom_teacher' => 'Siti Aminah'
-        ]
-];
+            [
+                'id' => 1,
+                'name' => 'XII AKL 1',
+                'grade' => 'XII',
+                'major' => 'AKL',
+                'homeroom_teacher' => 'Budi Santoso'
+            ],
+            [
+                'id' => 2,
+                'name' => 'XII TKJ 1',
+                'grade' => 'XII',
+                'major' => 'TKJ',
+                'homeroom_teacher' => 'Siti Aminah'
+            ]
+        ];
+        
 
-
-        return view('schoolclass.index',[
+        return view('schoolclass.index', [
             'title' => $title,
             'schoolclass' => $schoolclass
         ]);

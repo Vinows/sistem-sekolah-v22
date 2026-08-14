@@ -1,10 +1,8 @@
 @extends('layouts.app')
 
 @section('title', $title)
+
 @section('content')
-<x-alert type="ERROR">
-    Terdapat kesalahan ketika menambahkan data siswa baru ke dalam sistem sekolah
-</x-alert>
     <div class="mb-8 flex items-end justify-between border-b border-[#E5E3DB] pb-5">
         <div>
             <p class="mb-1 text-[11px] uppercase tracking-[0.2em] text-[#A16207]">
@@ -69,20 +67,20 @@
 
                         <td class="px-5 py-4">
                             <div class="flex justify-end gap-4 text-xs font-medium">
-                                <a href="{{ route('teachers.show', ['id' => 1]) }}" class="text-[#16213A] hover:text-[#A16207]">
+                                <a href="{{ route('teachers.show', ['id' => $teacher['id']]) }}" class="text-[#16213A] hover:text-[#A16207]">
                                     Lihat
                                 </a>
 
-                                <a href="{{ route('teachers.edit', ['id' => 1]) }}" class="text-[#16213A] hover:text-[#A16207]">
+                                <a href="{{ route('teachers.edit', ['id' => $teacher['id']]) }}" class="text-[#16213A] hover:text-[#A16207]">
                                     Ubah
                                 </a>
 
                                 <form action="" method="POST"
                                     onsubmit="return confirm('Hapus data siswa ini dari buku induk?')">
 
-                                    <button type="submit" class="text-red-700 hover:text-red-900">
-                                        Hapus
-                                    </button>
+                                    <a href="{{ route('teachers.destroy', ['id' => $teacher['id']]) }}" class="text-red-700 hover:text-red-900">
+                                    Hapus
+                                    <a>
                                 </form>
                             </div>
                         </td>

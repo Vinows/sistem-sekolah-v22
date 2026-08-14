@@ -3,8 +3,8 @@
 @section('title', $title)
 
 @section('content')
-    <a
-            href="#"
+        <a
+            href="{{ route('teachers.index') }}"
             class="text-xs uppercase widest[0.15em] text-slate-400 hover:text-[#A16207]">
             &larr; Buku Induk
         </a>
@@ -18,16 +18,16 @@
                     </p>
 
                     <h1 class="font-display text-3xl font-semibold text-[#16213A]">
-                        Budi Ariyanto
+                        {{$teacher['name']}}
                     </h1>
 
                     <p class="mt-1 font-mono text-xs text-slate-500">
-                        NIP 198501012024
+                        NIP {{$teacher['nip']}}
                     </p>
                 </div>
 
                 <a
-                    href="{{ route('teachers.edit', ['id' => 1]) }}"
+                    href="{{ route('teachers.edit', ['id' => $teacher['id']]) }}"
                     class="bg-[#16213A] px-5 py-2.5 text-sm font-medium text-white transition hover:bg-[#26324f]">
                     Ubah
                 </a>
@@ -41,7 +41,7 @@
                     </dt>
 
                     <dd class="font-medium text-[#16213A]">
-                        198501012024
+                        {{$teacher['nip']}}
                     </dd>
                 </div>
 
@@ -51,7 +51,7 @@
                     </dt>
 
                     <dd class="font-medium text-[#16213A]">
-                        Budi Santoso
+                        {{$teacher['name']}}
                     </dd>
                 </div>
 
@@ -61,7 +61,7 @@
                     </dt>
 
                     <dd class="font-medium text-[#16213A]">
-                        Laki-laki
+                        {{$teacher['gender']}}
                     </dd>
                 </div>
 
@@ -71,17 +71,17 @@
                     </dt>
 
                     <dd class="font-medium text-[#16213A]">
-                        Jaringan Komputer
+                        {{$teacher['subject']}}
                     </dd>
                 </div>
 
                 <div class="flex justify-between px-8 py-4">
                     <dt class="text-xs uppercase widest[0.1em] text-slate-400">
-                        NO. Telepon
+                        No. Telepon
                     </dt>
 
                     <dd class="font-medium text-[#16213A]">
-                        08123456789
+                        {{$teacher['phone']}}
                     </dd>
                 </div>
 

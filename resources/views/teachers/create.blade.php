@@ -17,7 +17,7 @@
             </h1>
 
             <p class="mt-1 text-sm text-slate-500">
-                Isi data untuk mendaftarkan guru ke buku induk.
+                Isi data untuk mendaftarkan Guru ke buku induk.
             </p>
         </div>
 
@@ -52,7 +52,7 @@
                     type="text"
                     id="name"
                     name="name"
-                    placeholder="Nama lengkap guru"
+                    placeholder="Nama lengkap Guru"
                     class="w-full border border-[#D9D6CD] bg-[#FCFBF8] px-3.5 py-2.5 text-sm placeholder:text-slate-400 focus:border-[#A16207] focus:bg-white focus:outline-none">
             </div>
 
@@ -76,7 +76,7 @@
                 <label
                     for="subject"
                     class="mb-1.5 block text-xs font-semibold uppercase widest[0.1em] text-[#16213A]">
-                    Mata Pelajaran
+                    Mata pelajaran
                 </label>
 
                 <input
@@ -84,14 +84,13 @@
                     id="subject"
                     name="subject"
                     placeholder="Mata pelajaran yang diampu"
-                    class="w-full border border-[#D9D6CD] bg-[#FCFBF8] px-3.5 py-2.5 text-sm placeholder:text-slate-400 focus:border-[#A16207] focus:bg-white focus:outline-none">
-            </div>
+                    class="w-full border border-[#D9D6CD] bg-[#FCFBF8] px-3.5 py-2.5 text-sm focus:border-[#A16207] focus:bg-white focus:outline-none">
                 </input>
             </div>
 
             <div>
                 <label
-                    for="phone"
+                    for="phone_number"
                     class="mb-1.5 block text-xs font-semibold uppercase widest[0.1em] text-[#16213A]">
                     No. Telepon
                 </label>
@@ -108,15 +107,15 @@
                 <label
                     for="status"
                     class="mb-1.5 block text-xs font-semibold uppercase widest[0.1em] text-[#16213A]">
-                    Jenis Kelamin
+                    Status
                 </label>
 
                 <select
                     id="status"
                     name="status"
                     class="w-full border border-[#D9D6CD] bg-[#FCFBF8] px-3.5 py-2.5 text-sm focus:border-[#A16207] focus:bg-white focus:outline-none">
-                    <option value="Aktif" selected>Aktif</option>
-                    <option value="Tidak Aktif">Tidak Aktif</option>
+                    <option value="A">Aktif</option>
+                    <option value="TA">Tidak Aktif</option>
                 </select>
             </div>
 

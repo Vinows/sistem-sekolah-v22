@@ -3,9 +3,6 @@
 @section('title', $title)
 
 @section('content')
-    <x-alert type="ERROR">
-        Terdapat kesalahan ketika menambahkan data Kelas baru ke dalam sistem sekolah
-    </x-alert>
     <div class="mb-8 flex items-end justify-between border-b border-[#E5E3DB] pb-5">
         <div>
             <p class="mb-1 text-[11px] uppercase tracking-[0.2em] text-[#A16207]">
@@ -26,7 +23,7 @@
         <table class="w-full text-left text-sm">
             <thead>
                 <tr class="border-b border-[#16213A] text-[11px] uppercase tracking-[0.15em] text-[#16213A]">
-                    <th class="w-14 px-5 py-3.5 font-semibold">No. </th>
+                    <th class="w-14 px-5 py-3.5 font-semibold">No.</th>
                     <th class="px-5 py-3.5 font-semibold">Nama Kelas</th>
                     <th class="px-5 py-3.5 font-semibold">Tingkat</th>
                     <th class="px-5 py-3.5 font-semibold">Jurusan</th>
@@ -60,20 +57,20 @@
 
                         <td class="px-5 py-4">
                             <div class="flex justify-end gap-4 text-xs font-medium">
-                                <a href="{{ route('classes.show', ['id' => 1]) }}" class="text-[#16213A] hover:text-[#A16207]">
+                                <a href="{{ route('classes.show', ['id' => $class['id']]) }}" class="text-[#16213A] hover:text-[#A16207]">
                                     Lihat
                                 </a>
 
-                                <a href="{{ route('classes.edit', ['id' => 1]) }}" class="text-[#16213A] hover:text-[#A16207]">
+                                <a href="{{ route('classes.edit', ['id' => $class['id']]) }}" class="text-[#16213A] hover:text-[#A16207]">
                                     Ubah
                                 </a>
 
                                 <form action="" method="POST"
                                     onsubmit="return confirm('Hapus data Kelas ini dari buku induk?')">
 
-                                    <button type="submit" class="text-red-700 hover:text-red-900">
-                                        Hapus
-                                    </button>
+                                    <a href="{{ route('classes.destroy', ['id' => $class['id']]) }}" class="text-red-700 hover:text-red-900">
+                                    Hapus
+                                    <a>
                                 </form>
                             </div>
                         </td>

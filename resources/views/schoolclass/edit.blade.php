@@ -4,7 +4,7 @@
 
 @section('content')
     <div class="mb-8 border-b border-[#E5E3DB] pb-5">
-            <a href="#" class="text-xs uppercase tracking-[0.15em] text-slate-400 hover:text-[#A16207]">
+            <a href="{{ route('classes.index') }}" class="text-xs uppercase tracking-[0.15em] text-slate-400 hover:text-[#A16207]">
                 &larr; Buku Induk
             </a>
 
@@ -13,10 +13,10 @@
             </h1>
 
             <p class="mt-1 text-sm text-slate-500">
-                Memperbarui catatan nama kelas
+                Memperbarui catatan atas Kelas
                 <span class="font-medium text-[#16213A]">
-                    XII AKL 1
-                </span>.
+                    {{$class['name']}}
+                </span>
             </p>
         </div>
 
@@ -33,7 +33,7 @@
                     type="text"
                     id="name"
                     name="name"
-                    value="XII AKL 1"
+                    value="{{ $class['name'] }}"
                     class="w-full border border-[#D9D6CD] bg-[#FCFBF8] px-3.5 py-2.5 text-sm focus:border-[#A16207] focus:bg-white focus:outline-none">
             </div>
 
@@ -48,56 +48,45 @@
                     id="grade"
                     name="grade"
                     class="w-full border border-[#D9D6CD] bg-[#FCFBF8] px-3.5 py-2.5 text-sm focus:border-[#A16207] focus:bg-white focus:outline-none">
-                    <option value="X" selected>X</option>
+                    <option value="X">X</option>
                     <option value="XI">XI</option>
-                    <option value="XII">XII</option>
+                    <option value="XII" selected>XII</option>
+                    
                 </select>
             </div>
 
             <div>
-                <label
-                    for="major"
-                    class="mb-1.5 block text-xs font-semibold uppercase widest[0.1em] text-[#16213A]">
+                <label for="major_id" class="mb-1.5 block text-xs font-semibold uppercase tracking-widest text-[#16213A]">
                     Jurusan
                 </label>
 
-                <select
-                    id="major"
+                <select 
+                    id="major_id" 
                     name="major_id"
-                    class="w-full border border-[#D9D6CD] bg-[#FCFBF8] px-3.5 py-2.5 text-sm focus:border-[#A16207] focus:bg-white">
-
-                    <option value="" selected>Pilih Jurusan</option>
-
+                    class="w-full border border-[#D9D6CD] bg-[#FCFBF8] px-3.5 py-2.5 text-sm focus:border-[#A16207] focus:bg-white focus:outline-none">
                     @foreach ($majors as $major)
-                        <option value="{{ $major ['id'] }}">
-                            {{ $major ['name'] }}
+                        <option value="{{ $major['id'] }}"  {{ $major['id'] == old('major_id') ? 'selected' : '' }}>
+                            {{ $major['code'] }}
                         </option>
                     @endforeach
                 </select>
             </div>
 
-
             <div>
-                <label
-                    for="homeroom_teacher"
-                    class="mb-1.5 block text-xs font-semibold uppercase widest[0.1em] text-[#16213A]">
+                <label for="teacher_id" class="mb-1.5 block text-xs font-semibold uppercase tracking-widest text-[#16213A]">
                     Wali Kelas
                 </label>
 
-                <select
-                    id="homeroom_teacher"
-                    name="major_id"
-                    class="w-full border border-[#D9D6CD] bg-[#FCFBF8] px-3.5 py-2.5 text-sm focus:border-[#A16207] focus:bg-white">
-
-                    <option value="" selected>Pilih Jurusan</option>
-
+                <select 
+                    id="teacher_id" 
+                    name="teacher_id"
+                    class="w-full border border-[#D9D6CD] bg-[#FCFBF8] px-3.5 py-2.5 text-sm focus:border-[#A16207] focus:bg-white focus:outline-none">
                     @foreach ($teachers as $teacher)
-                        <option value="{{ $teacher ['id'] }}">
-                            {{ $teacher ['name'] }}
+                        <option value="{{ $teacher['id'] }}" {{ $teacher['id'] == old('teacher_id') ? 'selected' : '' }}>
+                            {{ $teacher['name'] }}
                         </option>
                     @endforeach
                 </select>
-            </div>
             </div>
 
             <div class="flex justify-end gap-4 border-t border-[#EFEDE6] pt-6">

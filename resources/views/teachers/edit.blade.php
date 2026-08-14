@@ -15,7 +15,7 @@
             <p class="mt-1 text-sm text-slate-500">
                 Memperbarui catatan atas nama
                 <span class="font-medium text-[#16213A]">
-                    Budi Ariyanto
+                    {{$teacher['name']}}
                 </span>.
             </p>
         </div>
@@ -33,7 +33,7 @@
                     type="text"
                     id="nip"
                     name="nip"
-                    value="198501012024"
+                    value="{{$teacher['nip']}}"
                     class="w-full border border-[#D9D6CD] bg-[#FCFBF8] px-3.5 py-2.5 text-sm focus:border-[#A16207] focus:bg-white focus:outline-none">
             </div>
 
@@ -48,7 +48,7 @@
                     type="text"
                     id="name"
                     name="name"
-                    value="Budi Ariyanto"
+                    value="{{$teacher['name']}}"
                     class="w-full border border-[#D9D6CD] bg-[#FCFBF8] px-3.5 py-2.5 text-sm focus:border-[#A16207] focus:bg-white focus:outline-none">
             </div>
 
@@ -72,29 +72,29 @@
                 <label
                     for="subject"
                     class="mb-1.5 block text-xs font-semibold uppercase widest[0.1em] text-[#16213A]">
-                    Mata Pelajaran
+                    Mata pelajaran
                 </label>
 
-            <input 
-                type="text"
-                id="subject"
-                name="subject"
-                value="08123456789"
-                class="w-full border border-[#D9D6CD] bg-[#FCFBF8] px-3.5 py-2.5 text-sm focus:border-[#A16207] focus:bg-white focus:outline-none">
+                <input
+                    type="text"
+                    id="subject"
+                    name="subject"
+                    value="{{$teacher['subject']}}"
+                    class="w-full border border-[#D9D6CD] bg-[#FCFBF8] px-3.5 py-2.5 text-sm focus:border-[#A16207] focus:bg-white focus:outline-none">
             </div>
 
             <div>
                 <label
-                    for="class"
+                    for="phone_number"
                     class="mb-1.5 block text-xs font-semibold uppercase widest[0.1em] text-[#16213A]">
                     No. Telepon
                 </label>
 
                 <input
                     type="text"
-                    id="class"
-                    name="class"
-                    value="XII AKL 1"
+                    id="phone"
+                    name="phone"
+                    value="081234560001"
                     class="w-full border border-[#D9D6CD] bg-[#FCFBF8] px-3.5 py-2.5 text-sm focus:border-[#A16207] focus:bg-white focus:outline-none">
             </div>
 
@@ -109,8 +109,8 @@
                     id="status"
                     name="status"
                     class="w-full border border-[#D9D6CD] bg-[#FCFBF8] px-3.5 py-2.5 text-sm focus:border-[#A16207] focus:bg-white focus:outline-none">
-                    <option value="L" selected>Aktif</option>
-                    <option value="P">Tidak Aktif</option>
+                    <option value="A">Aktif</option>
+                    <option value="TA">Tidak Aktif</option>
                 </select>
             </div>
 
