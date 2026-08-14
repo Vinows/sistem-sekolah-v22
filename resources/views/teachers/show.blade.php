@@ -91,7 +91,7 @@
                     </dt>
 
                     <dd class="font-medium text-[#16213A]">
-                        Aktif
+                        <x-status-badge :status="$teacher['status']" />
                     </dd>
                 </div>
 
