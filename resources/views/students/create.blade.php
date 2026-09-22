@@ -8,7 +8,7 @@
         <div class="mb-8 border-b border-[#E5E3DB] pb-5">
             <a
                 href="{{ route('students.index') }}"
-                class="text-xs uppercase widest[0.15em] text-slate-400 hover:text-[#A16207]">
+                class="text-xs uppercase tracking-[0.15em] text-slate-400 hover:text-[#A16207]">
                 &larr; Buku Induk
             </a>
 
@@ -22,14 +22,15 @@
         </div>
 
         <form
-            action=""
+            action="{{ route('students.store') }}"
             method="POST"
             class="space-y-6 border border-[#E5E3DB] bg-white p-8">
+            @csrf
 
             <div>
                 <label
                     for="nis"
-                    class="mb-1.5 block text-xs font-semibold uppercase widest[0.1em] text-[#16213A]">
+                    class="mb-1.5 block text-xs font-semibold uppercase tracking-[0.1em] text-[#16213A]">
                     NIS
                 </label>
 
@@ -37,6 +38,7 @@
                     type="text"
                     id="nis"
                     name="nis"
+                    value="{{ old('nis') }}"
                     placeholder="Contoh: 2024010"
                     class="w-full border border-[#D9D6CD] bg-[#FCFBF8] px-3.5 py-2.5 text-sm placeholder:text-slate-400 focus:border-[#A16207] focus:bg-white focus:outline-none">
             </div>
@@ -44,7 +46,7 @@
             <div>
                 <label
                     for="name"
-                    class="mb-1.5 block text-xs font-semibold uppercase widest[0.1em] text-[#16213A]">
+                    class="mb-1.5 block text-xs font-semibold uppercase tracking-[0.1em] text-[#16213A]">
                     Nama Lengkap
                 </label>
 
@@ -52,6 +54,7 @@
                     type="text"
                     id="name"
                     name="name"
+                    value="{{ old('name') }}"
                     placeholder="Nama lengkap siswa"
                     class="w-full border border-[#D9D6CD] bg-[#FCFBF8] px-3.5 py-2.5 text-sm placeholder:text-slate-400 focus:border-[#A16207] focus:bg-white focus:outline-none">
             </div>
@@ -59,7 +62,7 @@
             <div>
                 <label
                     for="gender"
-                    class="mb-1.5 block text-xs font-semibold uppercase widest[0.1em] text-[#16213A]">
+                    class="mb-1.5 block text-xs font-semibold uppercase tracking-[0.1em] text-[#16213A]">
                     Jenis Kelamin
                 </label>
 
@@ -67,15 +70,15 @@
                     id="gender"
                     name="gender"
                     class="w-full border border-[#D9D6CD] bg-[#FCFBF8] px-3.5 py-2.5 text-sm focus:border-[#A16207] focus:bg-white focus:outline-none">
-                    <option value="L">Laki-laki</option>
-                    <option value="P">Perempuan</option>
+                    <option value="Laki-Laki" {{ old('gender') == 'Laki-Laki' ? 'selected' : '' }}>Laki-laki</option>
+                    <option value="Perempuan" {{ old('gender') == 'Perempuan' ? 'selected' : '' }}>Perempuan</option>
                 </select>
             </div>
 
             <div>
                 <label
                     for="major"
-                    class="mb-1.5 block text-xs font-semibold uppercase widest[0.1em] text-[#16213A]">
+                    class="mb-1.5 block text-xs font-semibold uppercase tracking-[0.1em] text-[#16213A]">
                     Jurusan
                 </label>
 
@@ -84,16 +87,16 @@
                     name="major"
                     class="w-full border border-[#D9D6CD] bg-[#FCFBF8] px-3.5 py-2.5 text-sm focus:border-[#A16207] focus:bg-white focus:outline-none">
                     <option value="">Pilih jurusan</option>
-                    <option value="">AKL</option>
-                    <option value="">TKJ</option>
-                    <option value="">BiD</option>
+                    <option value="AKL" {{ old('major') == 'AKL' ? 'selected' : '' }}>AKL</option>
+                    <option value="TKJ" {{ old('major') == 'TKJ' ? 'selected' : '' }}>TKJ</option>
+                    <option value="BD" {{ old('major') == 'BD' ? 'selected' : '' }}>BD</option>
                 </select>
             </div>
 
             <div>
                 <label
                     for="class"
-                    class="mb-1.5 block text-xs font-semibold uppercase widest[0.1em] text-[#16213A]">
+                    class="mb-1.5 block text-xs font-semibold uppercase tracking-[0.1em] text-[#16213A]">
                     Kelas
                 </label>
 
@@ -101,6 +104,7 @@
                     type="text"
                     id="class"
                     name="class"
+                    value="{{ old('class') }}"
                     placeholder="Contoh: X AKL 1"
                     class="w-full border border-[#D9D6CD] bg-[#FCFBF8] px-3.5 py-2.5 text-sm placeholder:text-slate-400 focus:border-[#A16207] focus:bg-white focus:outline-none">
             </div>
@@ -120,4 +124,5 @@
             </div>
 
         </form>
+    </main>
 @endsection

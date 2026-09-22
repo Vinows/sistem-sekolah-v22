@@ -12,7 +12,7 @@ class ShowController extends Controller
      */
     public function __invoke(Request $request, $id)
     {
-        $title = "Sistem Sekolah - Edit Kelas";
+        $title = "Sistem Sekolah - Detail Kelas";
         $schoolclass = [
             [
                 'id' => 1,
@@ -28,7 +28,7 @@ class ShowController extends Controller
                 'major' => 'TKJ',
                 'homeroom_teacher' => 'Siti Aminah'
             ]
-    ];
+        ];
         $teachers = [
             [
                 'id' => 1,
@@ -71,14 +71,14 @@ class ShowController extends Controller
         ];
 
         $class = collect($schoolclass)->firstWhere('id', $id);
-        $teachers = collect($teachers)->firstWhere('name', $class['homeroom_teacher']);
-        $majors = collect($majors)->firstWhere('code', $class['major']);
+        $teacher = collect($teachers)->firstWhere('name', $class['homeroom_teacher']);
+        $major = collect($majors)->firstWhere('code', $class['major']);
 
         return view('schoolclass.show', [
             'title' => $title,
             'class' => $class,
-            'teacher' => $teachers,
-            'major' => $majors
+            'teacher' => $teacher,
+            'major' => $major
         ]);
     }
 }

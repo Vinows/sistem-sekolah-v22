@@ -65,12 +65,13 @@
                                     Ubah
                                 </a>
 
-                                <form action="" method="POST"
+                                <form action="{{ route('students.destroy', ['id' => $student['id']]) }}" method="POST"
                                     onsubmit="return confirm('Hapus data siswa ini dari buku induk?')">
-
-                                    <a href="{{ route('students.destroy', ['id' => $student['id']]) }}" class="text-red-700 hover:text-red-900">
-                                    Hapus
-                                    <a>
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="text-red-700 hover:text-red-900">
+                                        Hapus
+                                    </button>
                                 </form>
                             </div>
                         </td>

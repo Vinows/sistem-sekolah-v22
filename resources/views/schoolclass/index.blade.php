@@ -65,12 +65,13 @@
                                     Ubah
                                 </a>
 
-                                <form action="" method="POST"
-                                    onsubmit="return confirm('Hapus data Kelas ini dari buku induk?')">
-
-                                    <a href="{{ route('classes.destroy', ['id' => $class['id']]) }}" class="text-red-700 hover:text-red-900">
-                                    Hapus
-                                    <a>
+                                <form action="{{ route('classes.destroy', ['id' => $class['id']]) }}" method="POST"
+                                    onsubmit="return confirm('Hapus data kelas ini dari buku induk?')">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="text-red-700 hover:text-red-900">
+                                        Hapus
+                                    </button>
                                 </form>
                             </div>
                         </td>

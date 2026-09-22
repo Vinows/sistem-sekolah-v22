@@ -60,12 +60,13 @@
                                     Ubah
                                 </a>
 
-                                <form action="" method="POST"
-                                    onsubmit="return confirm('Hapus data siswa ini dari buku induk?')">
-
-                                    <a href="{{ route('majors.destroy', ['major' => $major['id']]) }}" class="text-red-700 hover:text-red-900">
-                                    Hapus
-                                    <a>
+                                <form action="{{ route('majors.destroy', ['major' => $major['id']]) }}" method="POST"
+                                    onsubmit="return confirm('Hapus data jurusan ini dari buku induk?')">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="text-red-700 hover:text-red-900">
+                                        Hapus
+                                    </button>
                                 </form>
                             </div>
                         </td>

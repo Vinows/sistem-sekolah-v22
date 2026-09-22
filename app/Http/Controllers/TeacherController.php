@@ -30,7 +30,7 @@ class TeacherController extends Controller
             ]
         ];
 
-        return view('teachers.index',[
+        return view('teachers.index', [
             'title' => $title,
             'teachers' => $teachers
         ]);
@@ -74,11 +74,11 @@ class TeacherController extends Controller
             ]
         ];
 
-        $teachers = collect($teachers)->firstWhere('id', $id);
+        $teacher = collect($teachers)->firstWhere('id', $id);
 
         return view('teachers.show', [
             'title' => $title,
-            'teacher' => $teachers
+            'teacher' => $teacher
         ]);
     }
 
@@ -106,11 +106,11 @@ class TeacherController extends Controller
             ]
         ];
 
-        $teachers = collect($teachers)->firstWhere('id', $id);
+        $teacher = collect($teachers)->firstWhere('id', $id);
 
         return view('teachers.edit', [
             'title' => $title,
-            'teacher' => $teachers
+            'teacher' => $teacher
         ]);
     }
 
