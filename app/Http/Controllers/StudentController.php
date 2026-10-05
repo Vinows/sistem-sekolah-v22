@@ -65,13 +65,27 @@ class StudentController extends Controller
         ]);
     }
 
-    public function update($id)
+    public function update(Request $request, Student $student)
     {
-        return "Updating student with ID: {$id}";
+        //validasi
+        $validatedRequest = $request->validate([
+            'nis' => ['required', 'string', 'min:4', 'max:4'],
+            'name' => ['required', 'string', 'max:255'],
+            'gender' => ['required', 'string', 'in:Laki-Laki,Perempuan'],
+            'major' => ['required', 'string', 'in:AKL,TKJ,BD'],
+            'class' => ['required', 'string']
+        ]);
+
+        // Update the student record
+        $student->update($validatedRequest);
+
+        // Handle if success
+        return redirect()->route('students.index');
     }
 
-    public function destroy($id)
+    public function destroy(Student $student)
     {
-        return "Deleting student with ID: {$id}";
+        $student->delete();
+        return redirect()->route('students.index');
     }
 }

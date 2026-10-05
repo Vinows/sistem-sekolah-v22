@@ -37,7 +37,10 @@
                 name="nis"
                 value="{{ old('nis', $student->nis) }}"
                 class="w-full border border-[#D9D6CD] bg-[#FCFBF8] px-3.5 py-2.5 text-sm focus:border-[#A16207] focus:bg-white focus:outline-none">
-        </div>
+            @error('nis')
+                <span class="text-red-500 py-2">{{ $message }}</span>
+            @enderror
+            </div>
 
         <div>
             <label
@@ -52,6 +55,9 @@
                 name="name"
                 value="{{ old('name', $student->name) }}"
                 class="w-full border border-[#D9D6CD] bg-[#FCFBF8] px-3.5 py-2.5 text-sm focus:border-[#A16207] focus:bg-white focus:outline-none">
+            @error('name')
+                <span class="text-red-500 py-2">{{ $message }}</span>
+            @enderror
         </div>
 
         <div>
@@ -66,9 +72,12 @@
                 name="gender"
                 class="w-full border border-[#D9D6CD] bg-[#FCFBF8] px-3.5 py-2.5 text-sm focus:border-[#A16207] focus:bg-white focus:outline-none">
                 <option @selected(old('gender') === '') value="">Pilih Gender</option>
-                <option value="Laki-Laki" @selected="old('gender', $student->gender ?? 'Laki-Laki') == 'Laki-Laki'">Laki-laki</option>
-                <option value="Perempuan" @selected="old('gender', $student->gender ?? '') == 'Perempuan'">Perempuan</option>
+                <option value="Laki-Laki" @selected(old('gender', $student->gender) === 'Laki-Laki')>Laki-laki</option>
+                <option value="Perempuan" @selected(old('gender', $student->gender) === 'Perempuan')>Perempuan</option>
             </select>
+            @error('gender')
+                <span class="text-red-500 py-2">{{ $message }}</span>
+            @enderror
         </div>
 
         <div>
@@ -83,10 +92,13 @@
                 name="major"
                 class="w-full border border-[#D9D6CD] bg-[#FCFBF8] px-3.5 py-2.5 text-sm focus:border-[#A16207] focus:bg-white focus:outline-none">
                 <option @selected(old('major') === '') value="">Pilih Jurusan</option>
-                <option value="AKL" @selected="old('major', $student->major) === 'AKL'">AKL</option>
-                <option value="TKJ" @selected="old('major', $student->major) === 'TKJ'">TKJ</option>
-                <option value="BD" @selected="old('major', $student->major) === 'BD' || old('major', $student->major) === 'BiD'">BD</option>
+                <option value="AKL" @selected(old('major', $student->major) === 'AKL')>AKL</option>
+                <option value="TKJ" @selected(old('major', $student->major) === 'TKJ')>TKJ</option>
+                <option value="BD" @selected(old('major', $student->major) === 'BD' || old('major', $student->major) === 'BiD')>BD</option>
             </select>
+            @error('major')
+                <span class="text-red-500 py-2">{{ $message }}</span>
+            @enderror
         </div>
 
         <div>
@@ -102,6 +114,9 @@
                 name="class"
                 value="{{ old('class', $student->class) }}"
                 class="w-full border border-[#D9D6CD] bg-[#FCFBF8] px-3.5 py-2.5 text-sm focus:border-[#A16207] focus:bg-white focus:outline-none">
+            @error('class')
+                <span class="text-red-500 py-2">{{ $message }}</span>
+            @enderror
         </div>
 
         <div class="flex justify-end gap-4 border-t border-[#EFEDE6] pt-6">

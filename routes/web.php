@@ -23,17 +23,17 @@ Route::name('students.')->prefix('students')->controller(StudentController::clas
 
     Route::get('/', 'index')->name('index');
 
-    Route::get('/{student}', 'show')->name('show')->whereNumber('id');
-
     Route::get('/create', 'create')->name('create');
 
-    Route::get('/{student}/edit', 'edit')->name('edit')->whereNumber('id');
+    Route::get('/{student}', 'show')->name('show')->whereNumber('student');
+
+    Route::get('/{student}/edit', 'edit')->name('edit')->whereNumber('student');
 
     Route::post('/', 'store')->name('store');
 
-    Route::put('/{student}', 'update')->name('update')->whereNumber('id');
+    Route::put('/{student}', 'update')->name('update')->whereNumber('student');
 
-    Route::delete('/{student}', 'destroy')->name('destroy')->whereNumber('id');
+    Route::delete('/{student}', 'destroy')->name('destroy')->whereNumber('student');
 
 });
 
@@ -42,9 +42,9 @@ Route::name('teachers.')->prefix('teachers')->controller(TeacherController::clas
 
     Route::get('/', 'index')->name('index');
 
-    Route::get('/{id}', 'show')->name('show')->whereNumber('id');
-
     Route::get('/create', 'create')->name('create');
+
+    Route::get('/{id}', 'show')->name('show')->whereNumber('id');
 
     Route::get('/{id}/edit', 'edit')->name('edit')->whereNumber('id');
 
@@ -62,11 +62,11 @@ Route::name('classes.')->prefix('classes')->group(function () {
     // Halaman Daftar Class
     Route::get('/', IndexController::class)->name('index');
 
-    // Halaman Detail Class
-    Route::get('/{id}', ShowController::class)->name('show')->whereNumber('id');
-
     // Halaman Tambah Class
     Route::get('/create', CreateController::class)->name('create');
+
+    // Halaman Detail Class
+    Route::get('/{id}', ShowController::class)->name('show')->whereNumber('id');
 
     // Halaman Edit Class
     Route::get('/{id}/edit', EditController::class)->name('edit')->whereNumber('id');
