@@ -23,17 +23,17 @@ Route::name('students.')->prefix('students')->controller(StudentController::clas
 
     Route::get('/', 'index')->name('index');
 
-    Route::get('/{id}', 'show')->name('show')->whereNumber('id');
+    Route::get('/{student}', 'show')->name('show')->whereNumber('id');
 
     Route::get('/create', 'create')->name('create');
 
-    Route::get('/{id}/edit', 'edit')->name('edit')->whereNumber('id');
+    Route::get('/{student}/edit', 'edit')->name('edit')->whereNumber('id');
 
     Route::post('/', 'store')->name('store');
 
-    Route::put('/{id}', 'update')->name('update')->whereNumber('id');
+    Route::put('/{student}', 'update')->name('update')->whereNumber('id');
 
-    Route::delete('/{id}', 'destroy')->name('destroy')->whereNumber('id');
+    Route::delete('/{student}', 'destroy')->name('destroy')->whereNumber('id');
 
 });
 

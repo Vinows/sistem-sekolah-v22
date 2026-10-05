@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Teacher;
 use Illuminate\Http\Request;
 
 class TeacherController extends Controller
@@ -9,26 +10,7 @@ class TeacherController extends Controller
     public function index()
     {
         $title = "Sistem Sekolah - Daftar Guru";
-        $teachers = [
-            [
-                'id' => 1,
-                'nip' => '198501012024',
-                'name' => 'Budi Santoso',
-                'gender' => 'Laki-Laki',
-                'subject' => 'Akuntansi Dasar',
-                'phone' => '081234560001',
-                'status' => 'Aktif',
-            ],
-            [
-                'id' => 2,
-                'nip' => '198703152024',
-                'name' => 'Siti Aminah',
-                'gender' => 'Perempuan',
-                'subject' => 'Jaringan Komputer',
-                'phone' => '081234560002',
-                'status' => 'Tidak Aktif',
-            ]
-        ];
+        $teachers = Teacher::select(['id', 'nip', 'name', 'gender', 'subject', 'phone', 'status'])->get();
 
         return view('teachers.index', [
             'title' => $title,

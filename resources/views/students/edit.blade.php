@@ -15,12 +15,12 @@
         <p class="mt-1 text-sm text-slate-500">
             Memperbarui catatan atas nama
             <span class="font-medium text-[#16213A]">
-                {{ $student['name'] }}
+                {{ $student->name }}
             </span>.
         </p>
     </div>
 
-    <form action="{{ route('students.update', ['id' => $student['id']]) }}" method="POST" class="space-y-6 border border-[#E5E3DB] bg-white p-8">
+    <form action="{{ route('students.update', ['student' => $student->id]) }}" method="POST" class="space-y-6 border border-[#E5E3DB] bg-white p-8">
         @csrf
         @method('PUT')
 
@@ -35,7 +35,7 @@
                 type="text"
                 id="nis"
                 name="nis"
-                value="{{ old('nis', $student['nis']) }}"
+                value="{{ old('nis', $student->nis) }}"
                 class="w-full border border-[#D9D6CD] bg-[#FCFBF8] px-3.5 py-2.5 text-sm focus:border-[#A16207] focus:bg-white focus:outline-none">
         </div>
 
@@ -50,7 +50,7 @@
                 type="text"
                 id="name"
                 name="name"
-                value="{{ old('name', $student['name']) }}"
+                value="{{ old('name', $student->name) }}"
                 class="w-full border border-[#D9D6CD] bg-[#FCFBF8] px-3.5 py-2.5 text-sm focus:border-[#A16207] focus:bg-white focus:outline-none">
         </div>
 
@@ -65,8 +65,9 @@
                 id="gender"
                 name="gender"
                 class="w-full border border-[#D9D6CD] bg-[#FCFBF8] px-3.5 py-2.5 text-sm focus:border-[#A16207] focus:bg-white focus:outline-none">
-                <option value="Laki-Laki" {{ old('gender', $student['gender'] ?? 'Laki-Laki') == 'Laki-Laki' ? 'selected' : '' }}>Laki-laki</option>
-                <option value="Perempuan" {{ old('gender', $student['gender'] ?? '') == 'Perempuan' ? 'selected' : '' }}>Perempuan</option>
+                <option @selected(old('gender') === '') value="">Pilih Gender</option>
+                <option value="Laki-Laki" @selected="old('gender', $student->gender ?? 'Laki-Laki') == 'Laki-Laki'">Laki-laki</option>
+                <option value="Perempuan" @selected="old('gender', $student->gender ?? '') == 'Perempuan'">Perempuan</option>
             </select>
         </div>
 
@@ -81,9 +82,10 @@
                 id="major"
                 name="major"
                 class="w-full border border-[#D9D6CD] bg-[#FCFBF8] px-3.5 py-2.5 text-sm focus:border-[#A16207] focus:bg-white focus:outline-none">
-                <option value="AKL" {{ old('major', $student['major']) === 'AKL' ? 'selected' : '' }}>AKL</option>
-                <option value="TKJ" {{ old('major', $student['major']) === 'TKJ' ? 'selected' : '' }}>TKJ</option>
-                <option value="BD" {{ old('major', $student['major']) === 'BD' || old('major', $student['major']) === 'BiD' ? 'selected' : '' }}>BD</option>
+                <option @selected(old('major') === '') value="">Pilih Jurusan</option>
+                <option value="AKL" @selected="old('major', $student->major) === 'AKL'">AKL</option>
+                <option value="TKJ" @selected="old('major', $student->major) === 'TKJ'">TKJ</option>
+                <option value="BD" @selected="old('major', $student->major) === 'BD' || old('major', $student->major) === 'BiD'">BD</option>
             </select>
         </div>
 
@@ -98,7 +100,7 @@
                 type="text"
                 id="class"
                 name="class"
-                value="{{ old('class', $student['class']) }}"
+                value="{{ old('class', $student->class) }}"
                 class="w-full border border-[#D9D6CD] bg-[#FCFBF8] px-3.5 py-2.5 text-sm focus:border-[#A16207] focus:bg-white focus:outline-none">
         </div>
 

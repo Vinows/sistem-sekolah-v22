@@ -10,7 +10,7 @@ class StudentController extends Controller
     public function index()
     {
         $title = "Sistem Sekolah - Daftar Siswa";
-        $students = Student::all();
+        $students = Student::select(['id', 'nis', 'name', 'class', 'major'])->get();
 
         return view('students.index',[
             'title' => $title,
@@ -21,7 +21,7 @@ class StudentController extends Controller
     public function create()
     {
         $title = "Sistem Sekolah - Tambah Siswa";
-        
+
         return view('students.create',[
             'title' => $title
         ]);
@@ -45,59 +45,23 @@ class StudentController extends Controller
         return redirect()->route('students.index');
     }
 
-    public function show($id)
+    public function show(Student $student)
     {
         $title = "Sistem Sekolah - Detail Siswa";
-        $students = [
-            [
-                'id' => 1,
-                'nis' => '1001',
-                'name' => 'Andi',
-                'class' => 'XII TKJ 1',
-                'major' => 'TKJ'
-            ],
-            [
-                'id' => 2,
-                'nis' => '1002',
-                'name' => 'Budi',
-                'class' => 'XII AKL 1',
-                'major' => 'AKL'
-            ]
-        ];
-
-        $students = collect($students)->firstWhere('id', $id);
 
         return view('students.show',[
             'title' => $title,
-            'student' => $students
+            'student' => $student
         ]);
     }
 
-    public function edit($id)
+    public function edit(Student $student)
     {
         $title = "Sistem Sekolah - Edit Siswa";
-        $students = [
-            [
-                'id' => 1,
-                'nis' => '1001',
-                'name' => 'Andi',
-                'class' => 'XII TKJ 1',
-                'major' => 'TKJ'
-            ],
-            [
-                'id' => 2,
-                'nis' => '1002',
-                'name' => 'Budi',
-                'class' => 'XII AKL 1',
-                'major' => 'AKL'
-            ]
-        ];
 
-        $students = collect($students)->firstWhere('id', $id);
-        
         return view('students.edit', [
             'title' => $title,
-            'student'=> $students
+            'student' => $student
         ]);
     }
 

@@ -15,5 +15,4 @@
         <h1 class="text-lg text-blue-500 font-bold">Info</h1>
         <p class="text-blue-500">{{ $slot }}</p>
     </div>
-    
 @endif

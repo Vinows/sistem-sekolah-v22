@@ -18,15 +18,15 @@
                 </p>
 
                 <h1 class="font-display text-3xl font-semibold text-[#16213A]">
-                    {{ $student['name'] }}
+                    {{ $student->name }}
                 </h1>
 
                 <p class="mt-1 font-mono text-xs text-slate-500">
-                    {{ $student['nis'] }}
+                    {{ $student->nis }}
                 </p>
             </div>
 
-            <a href="{{ route('students.edit', ['id' => $student['id']]) }}"
+            <a href="{{ route('students.edit', ['student' => $student->id ]) }}"
                 class="bg-[#16213A] px-5 py-2.5 text-sm font-medium text-white transition hover:bg-[#26324f]">
                 Ubah
             </a>
@@ -40,7 +40,7 @@
                 </dt>
 
                 <dd class="font-medium text-[#16213A]">
-                    {{ $student['nis'] }}
+                    {{ $student->nis }}
                 </dd>
             </div>
 
@@ -50,7 +50,7 @@
                 </dt>
 
                 <dd class="font-medium text-[#16213A]">
-                    {{ $student['name'] }}
+                    {{ $student->name }}
                 </dd>
             </div>
 
@@ -60,7 +60,7 @@
                 </dt>
 
                 <dd class="font-medium text-[#16213A]">
-                    {{ $student['gender'] ?? 'Laki-laki' }}
+                    {{ $student->gender ?? 'Laki-laki' }}
                 </dd>
             </div>
 
@@ -70,7 +70,7 @@
                 </dt>
 
                 <dd class="font-medium text-[#16213A]">
-                    {{ $student['major'] }}
+                    {{ $student->major }}
                 </dd>
             </div>
 
@@ -80,7 +80,7 @@
                 </dt>
 
                 <dd class="font-medium text-[#16213A]">
-                    {{ $student['class'] }}
+                    {{ $student->class }}
                 </dd>
             </div>
 
@@ -94,7 +94,7 @@
             </a>
 
             <form
-                action="{{ route('students.destroy', ['id' => $student['id']]) }}"
+                action="{{ route('students.destroy', ['student' => $student->id]) }}"
                 method="POST"
                 onsubmit="return confirm('Hapus data siswa ini dari buku induk?')">
 
