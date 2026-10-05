@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Student\StoreRequest;
+use App\Http\Requests\Student\UpdateRequest;
 use App\Models\Student;
 use Illuminate\Http\Request;
 
@@ -27,16 +29,10 @@ class StudentController extends Controller
         ]);
     }
 
-    public function store(Request $request)
+    public function store(StoreRequest $request)
     {
         //validasi
-        $validatedRequest = $request->validate([
-            'nis' => ['required', 'string', 'min:4', 'max:4', 'unique:students,nis'],
-            'name' => ['required', 'string', 'max:255'],
-            'gender' => ['required', 'string', 'in:Laki-Laki,Perempuan'],
-            'major' => ['required', 'string', 'in:AKL,TKJ,BD'],
-            'class' => ['required', 'string']
-        ]);
+        $validatedRequest = $request->validated();
 
         //Sambungkan Ke Database
         Student::create($validatedRequest);
@@ -65,16 +61,11 @@ class StudentController extends Controller
         ]);
     }
 
-    public function update(Request $request, Student $student)
+    public function update(UpdateRequest $request, Student $student)
     {
         //validasi
-        $validatedRequest = $request->validate([
-            'nis' => ['required', 'string', 'min:4', 'max:4'],
-            'name' => ['required', 'string', 'max:255'],
-            'gender' => ['required', 'string', 'in:Laki-Laki,Perempuan'],
-            'major' => ['required', 'string', 'in:AKL,TKJ,BD'],
-            'class' => ['required', 'string']
-        ]);
+        $validatedRequest = $request->validated();
+
 
         // Update the student record
         $student->update($validatedRequest);
