@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\StudentController;
@@ -17,6 +18,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// Authentication
+Route::get('/login', [AuthController::class, 'LoginView'])->name('login-view');
+Route::post('/login', [AuthController::class, 'LoginPost'])->name('login-post');
+Route::get('/register', [AuthController::class, 'RegisterView'])->name('register-view');
+Route::post('/register', [AuthController::class, 'RegisterPost'])->name('register-post');
+Route::post('/logout', [AuthController::class, 'Logout'])->name('logout');
 
 // Management Data Student (Action Controller)
 Route::name('students.')->prefix('students')->controller(StudentController::class)->group(function () {
