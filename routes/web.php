@@ -19,14 +19,14 @@ Route::get('/', function () {
 });
 
 // Authentication
-Route::get('/login', [AuthController::class, 'LoginView'])->name('login-view');
-Route::post('/login', [AuthController::class, 'LoginPost'])->name('login-post');
-Route::get('/register', [AuthController::class, 'RegisterView'])->name('register-view');
-Route::post('/register', [AuthController::class, 'RegisterPost'])->name('register-post');
-Route::post('/logout', [AuthController::class, 'Logout'])->name('logout');
+Route::get('/login', [AuthController::class, 'LoginView'])->name('login-view')->middleware('guest');
+Route::post('/login', [AuthController::class, 'LoginPost'])->name('login-post')->middleware('guest');
+Route::get('/register', [AuthController::class, 'RegisterView'])->name('register-view')->middleware('guest');
+Route::post('/register', [AuthController::class, 'RegisterPost'])->name('register-post')->middleware('guest');
+Route::post('/logout', [AuthController::class, 'Logout'])->name('logout')->middleware('auth');
 
 // Management Data Student (Action Controller)
-Route::name('students.')->prefix('students')->controller(StudentController::class)->group(function () {
+Route::name('students.')->middleware(['role:student', 'role:teacher', 'auth'])->prefix('students')->controller(StudentController::class)->group(function () {
 
     Route::get('/', 'index')->name('index');
 
@@ -45,7 +45,7 @@ Route::name('students.')->prefix('students')->controller(StudentController::clas
 });
 
 // Management Data Teacher (Action Controller)
-Route::name('teachers.')->prefix('teachers')->controller(TeacherController::class)->group(function () {
+Route::name('teachers.')->middleware(['role:teacher', 'auth'])->prefix('teachers')->controller(TeacherController::class)->group(function () {
 
     Route::get('/', 'index')->name('index');
 
@@ -65,7 +65,7 @@ Route::name('teachers.')->prefix('teachers')->controller(TeacherController::clas
 
 // Management SchoolClass (Invokable)
 
-Route::name('classes.')->prefix('classes')->group(function () {
+Route::name('classes.')->middleware(['role:teacher', 'auth'])->prefix('classes')->group(function () {
     // Halaman Daftar Class
     Route::get('/', IndexController::class)->name('index');
 
@@ -90,4 +90,4 @@ Route::name('classes.')->prefix('classes')->group(function () {
 
 // Management Major (Resource Controller)
 
-Route::resource('majors', MajorController::class);
+Route::resource('majors', MajorController::class)->middleware(['role:teacher', 'auth']);
