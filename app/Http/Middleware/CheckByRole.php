@@ -16,9 +16,8 @@ class CheckByRole
     public function handle(Request $request, Closure $next, ...$roles): Response
     {
         $user = auth()->user();
-
-        if (!in_array($user->role, $roles)) {
-            abort(403, 'Unauthorized action.');
+        if(!in_array($user->role, $roles)){
+            abort(403, 'Anda tidak memunyai akses ke halaman ini');
         }
 
         return $next($request);

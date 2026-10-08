@@ -26,7 +26,7 @@ Route::post('/register', [AuthController::class, 'RegisterPost'])->name('registe
 Route::post('/logout', [AuthController::class, 'Logout'])->name('logout')->middleware('auth');
 
 // Management Data Student (Action Controller)
-Route::name('students.')->middleware(['role:student', 'role:teacher', 'auth'])->prefix('students')->controller(StudentController::class)->group(function () {
+Route::name('students.')->middleware(['role:student,teacher', 'auth'])->prefix('students')->controller(StudentController::class)->group(function () {
 
     Route::get('/', 'index')->name('index');
 
