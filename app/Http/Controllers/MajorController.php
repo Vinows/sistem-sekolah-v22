@@ -27,8 +27,8 @@ class MajorController extends Controller
             ],
             [
                 'id' => 3,
-                'code' => 'BD',
-                'name' => 'Bisnis Digital',
+                'code' => 'BID',
+                'name' => 'Bisnis Informasi & Digital',
                 'description' => 'Program keahlian yang membekali murid dengan kompetensi pemasaran dan pengelolaan bisnis berbasis digital.',
             ],
         ];
@@ -79,8 +79,8 @@ class MajorController extends Controller
             ],
             [
                 'id' => 3,
-                'code' => 'BD',
-                'name' => 'Bisnis Digital',
+                'code' => 'BID',
+                'name' => 'Bisnis Informasi & Digital',
                 'description' => 'Program keahlian yang membekali murid dengan kompetensi pemasaran dan pengelolaan bisnis berbasis digital.',
             ],
         ];
@@ -114,8 +114,8 @@ class MajorController extends Controller
             ],
             [
                 'id' => 3,
-                'code' => 'BD',
-                'name' => 'Bisnis Digital',
+                'code' => 'BID',
+                'name' => 'Bisnis Informasi & Digital',
                 'description' => 'Program keahlian yang membekali murid dengan kompetensi pemasaran dan pengelolaan bisnis berbasis digital.',
             ],
         ];
