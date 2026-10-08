@@ -28,7 +28,7 @@ class StoreRequest extends FormRequest
             'name' => ['required', 'string', 'max:255'],
             'gender' => ['required', 'string', 'in:Laki-Laki,Perempuan'],
             'class' => ['required', 'string'],
-            'major' => ['required', 'string', 'in:AKL,TKJ,BD']
+            'major' => ['required', 'string', 'in:AKL,TKJ,BID']
         ];
     }
 }
